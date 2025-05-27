@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Krishnamart</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Krishna<span class="highlight">Mart</span></h1>
+            </div>
+           
+                <a href="cart.html" class="nav-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Cart</span>
+                </a>
+                
+                <a href="profile.html" class="nav-link">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="offers.html" class="nav-link"><i class="fas fa-tag"></i> <span>Offers</span></a>
+                <a href="products.html" class="nav-link"><i class="fas fa-box"></i> <span>Products</span></a>
+                <a href="my-orders.html" class="nav-link"><i class="fas fa-box"></i> <span>My Order</span></a>
+                <a href="index.html" class="nav-link" id="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <div class="welcome-container">
+            <h2>Welcome back, <span id="user-name">User</span>!</h2>
+            <p>Here's what's new for you today</p>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="quick-stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>Orders</h3>
+                <p class="stat-value">0</p>
+            </div>
+           
+            <div class="stat-card">
+                <i class="fas fa-star"></i>
+                <h3>Rewards</h3>
+                <p class="stat-value">0</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Orders -->
+    <section class="recent-orders">
+        <div class="section-header">
+            <h2>Recent Orders</h2>
+            <p>Your latest purchases</p>
+        </div>
+        <div class="orders-container">
+            <div class="no-orders">
+                <i class="fas fa-shopping-bag"></i>
+                <p>No recent orders</p>
+                <a href="products.html" class="btn btn-primary">Start Shopping</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommended Products -->
+    <section class="recommended-products">
+        <div class="section-header">
+            <h2>Recommended for You</h2>
+            <p>Based on your preferences</p>
+        </div>
+        <div class="product-grid" id="recommended-products">
+            <!-- Products will be loaded here -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Krishnamart is your premium destination for curated collections of high-quality products. We bring you the best of everything with exceptional service.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="dashboard.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="offers.html">Offers</a></li>
+                    <li><a href="contactdash.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: support@krishnamart.com</p>
+                <p>Phone: +91 1234567890</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Krishnamart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html> 

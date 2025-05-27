@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details - Krishnamart</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .order-details-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .order-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .order-section h2 {
+            margin-bottom: 1.5rem;
+            color: #333;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 0.5rem;
+        }
+
+        .order-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-group {
+            margin-bottom: 1rem;
+        }
+
+        .info-group h3 {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-group p {
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .order-items {
+            margin-top: 1rem;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-details {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .item-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .item-info h4 {
+            margin: 0;
+            color: #333;
+        }
+
+        .item-info p {
+            margin: 0.25rem 0;
+            color: #666;
+        }
+
+        .order-total {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #eee;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .total-row.final {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .order-status {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .status-processing {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .status-shipped {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+
+        .status-delivered {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .tracking-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .action-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .print-btn {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .print-btn:hover {
+            background-color: #5a6268;
+        }
+
+        .download-btn {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .download-btn:hover {
+            background-color: #138496;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1><span class="highlight">Krishna</span>mart</h1>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard.html" class="nav-link"><i class="fas fa-home"></i> <span>Home</span></a>
+                <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> <span>Cart</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="order-details-container">
+        <!-- Order Status Section -->
+        <div class="order-section">
+            <h2>Order Status</h2>
+            <div class="order-status status-processing" id="orderStatus">Processing</div>
+            <div class="tracking-info" id="trackingInfo">
+                <p>Your order is being processed. We'll notify you when it ships.</p>
+            </div>
+        </div>
+
+        <!-- Order Items Section -->
+        <div class="order-section">
+            <h2>Order Items</h2>
+            <div class="order-items" id="orderItems">
+                <!-- Order items will be dynamically added here -->
+            </div>
+            <div class="order-total">
+                <div class="total-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">₹0.00</span>
+                </div>
+                <div class="total-row">
+                    <span>Shipping</span>
+                    <span id="shipping">₹0.00</span>
+                </div>
+                <div class="total-row">
+                    <span>Tax</span>
+                    <span id="tax">₹0.00</span>
+                </div>
+                <div class="total-row final">
+                    <span>Total</span>
+                    <span id="total">₹0.00</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shipping Details Section -->
+        <div class="order-section">
+            <h2>Shipping Details</h2>
+            <div class="order-info">
+                <div>
+                    <div class="info-group">
+                        <h3>Full Name</h3>
+                        <p id="shippingName"></p>
+                    </div>
+                    <div class="info-group">
+                        <h3>Email Address</h3>
+                        <p id="shippingEmail"></p>
+                    </div>
+                    <div class="info-group">
+                        <h3>Phone Number</h3>
+                        <p id="shippingPhone"></p>
+                    </div>
+                </div>
+                <div>
+                    <div class="info-group">
+                        <h3>Shipping Address</h3>
+                        <p id="shippingAddress"></p>
+                    </div>
+                    <div class="info-group">
+                        <h3>City, State, ZIP</h3>
+                        <p id="shippingCityStateZip"></p>
+                    </div>
+                    <div class="info-group">
+                        <h3>Country</h3>
+                        <p id="shippingCountry"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="action-btn print-btn" onclick="window.print()">
+                <i class="fas fa-print"></i> Print Order
+            </button>
+            <button class="action-btn download-btn" onclick="downloadOrderDetails()">
+                <i class="fas fa-download"></i> Download Details
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Function to load order details
+        function loadOrderDetails() {
+            // Load cart items
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const orderItemsContainer = document.getElementById('orderItems');
+            let subtotal = 0;
+
+            orderItemsContainer.innerHTML = '';
+            cartItems.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'order-item';
+                itemElement.innerHTML = `
+                    <div class="item-details">
+                        <img src="${item.image}" alt="${item.name}" class="item-image">
+                        <div class="item-info">
+                            <h4>${item.name}</h4>
+                            <p>Quantity: ${item.quantity}</p>
+                            <p>Price: ₹${item.price.toFixed(2)}</p>
+                        </div>
+                    </div>
+                    <div class="item-total">
+                        ₹${(item.price * item.quantity).toFixed(2)}
+                    </div>
+                `;
+                orderItemsContainer.appendChild(itemElement);
+                subtotal += item.price * item.quantity;
+            });
+
+            // Calculate totals
+            const shipping = 100; // Example shipping cost
+            const tax = subtotal * 0.18; // 18% tax
+
+            document.getElementById('subtotal').textContent = `₹${subtotal.toFixed(2)}`;
+            document.getElementById('shipping').textContent = `₹${shipping.toFixed(2)}`;
+            document.getElementById('tax').textContent = `₹${tax.toFixed(2)}`;
+            document.getElementById('total').textContent = `₹${(subtotal + shipping + tax).toFixed(2)}`;
+
+            // Load shipping details
+            const shippingDetails = JSON.parse(localStorage.getItem('shippingDetails')) || {};
+            
+            document.getElementById('shippingName').textContent = shippingDetails.fullName || 'Not provided';
+            document.getElementById('shippingEmail').textContent = shippingDetails.email || 'Not provided';
+            document.getElementById('shippingPhone').textContent = shippingDetails.phone || 'Not provided';
+            document.getElementById('shippingAddress').textContent = shippingDetails.address || 'Not provided';
+            document.getElementById('shippingCityStateZip').textContent = 
+                `${shippingDetails.city || ''}, ${shippingDetails.state || ''} ${shippingDetails.zipCode || ''}`;
+            document.getElementById('shippingCountry').textContent = shippingDetails.country || 'Not provided';
+        }
+
+        // Function to download order details
+        function downloadOrderDetails() {
+            const orderDetails = {
+                items: JSON.parse(localStorage.getItem('cart')) || [],
+                shipping: JSON.parse(localStorage.getItem('shippingDetails')) || {},
+                totals: {
+                    subtotal: document.getElementById('subtotal').textContent,
+                    shipping: document.getElementById('shipping').textContent,
+                    tax: document.getElementById('tax').textContent,
+                    total: document.getElementById('total').textContent
+                }
+            };
+
+            const blob = new Blob([JSON.stringify(orderDetails, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'order-details.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Load order details when page loads
+        document.addEventListener('DOMContentLoaded', loadOrderDetails);
+    </script>
+</body>
+</html> 

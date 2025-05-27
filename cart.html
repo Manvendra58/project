@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Krishnamart</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1><span class="highlight">Krishna</span>mart</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search for products, brands, and more...">
+                <button id="search-button"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-links">
+                <a href="products.html" class="nav-link"><i class="fas fa-box"></i> <span>Products</span></a>
+                <a href="offers.html" class="nav-link"><i class="fas fa-tag"></i> <span>Offers</span></a>
+                <a href="dashboard.html" class="nav-link"><i class="fas fa-home"></i> <span>Home</span></a>
+                <a href="cart.html" class="nav-link active"><i class="fas fa-shopping-cart"></i> <span>Cart</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="cart-container">
+        <div class="cart-header">
+            <h1>Your Shopping Cart</h1>
+            <p>Review and manage your items</p>
+        </div>
+
+        <div class="cart-content">
+            <div class="cart-items">
+                <div id="cart-items-list">
+                    <!-- Cart items will be loaded dynamically -->
+                </div>
+                <div class="empty-cart" id="empty-cart" style="display: none;">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Your cart is empty</p>
+                    <a href="products.html" class="btn btn-primary">Continue Shopping</a>
+                </div>
+            </div>
+
+            <div class="order-summary">
+                <h2>Order Summary</h2>
+                <div class="summary-items">
+                    <div class="summary-item">
+                        <span>Subtotal</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Shipping</span>
+                        <span id="shipping">$0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Tax</span>
+                        <span id="tax">$0.00</span>
+                    </div>
+                    <div class="summary-item total">
+                        <span>Total</span>
+                        <span id="total">$0.00</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Cart Item Template -->
+    <template id="cart-item-template">
+        <div class="cart-item">
+            <div class="item-image">
+                <img src="" alt="">
+            </div>
+            <div class="item-details">
+                <h3 class="item-name"></h3>
+                <p class="item-brand"></p>
+                <div class="item-price">
+                    <span class="current-price"></span>
+                    <span class="original-price"></span>
+                </div>
+            </div>
+            <div class="item-quantity">
+                <button class="btn-quantity decrease">-</button>
+                <span class="quantity">1</span>
+                <button class="btn-quantity increase">+</button>
+            </div>
+            <div class="item-total">
+                <span class="total-price"></span>
+            </div>
+            <div class="item-actions">
+                <button class="btn-remove" title="Remove item">
+                    <i class="fas fa-trash"></i>
+                </button>
+                <button class="btn-wishlist" title="Move to wishlist">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <script src="cart.js"></script>
+</body>
+</html> 

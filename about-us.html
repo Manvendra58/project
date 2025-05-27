@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Krishnamart</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .about-section {
+            padding: 4rem 0;
+            background-color: #f9f9f9;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .about-header h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .about-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .about-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-card h2 {
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .about-card h2 i {
+            color: #4CAF50;
+        }
+
+        .about-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .mission-card, .vision-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission-card i, .vision-card i {
+            font-size: 2.5rem;
+            color: #4CAF50;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-card h3, .vision-card h3 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .mission-card p, .vision-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .team-section {
+            margin-top: 3rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .team-member-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .team-member-info h3 {
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .values-section {
+            margin-top: 3rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-card i {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            color: #333;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .value-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1><span class="highlight">Krishna</span>mart</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> <span>Home</span></a>
+                <a href="productindex.html" class="nav-link"><i class="fas fa-box"></i> <span>Products</span></a>
+                <a href="offerindex.html" class="nav-link"><i class="fas fa-tag"></i> <span>Offers</span></a>
+                <a href="login.html" class="nav-link"><i class="fas fa-sign-in-alt"></i> <span>Login</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-header">
+                <h1>About Krishnamart</h1>
+                <p>Your trusted online shopping destination for quality products at affordable prices</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-card">
+                    <h2><i class="fas fa-store"></i> Our Story</h2>
+                    <p>Founded in 2024, Krishnamart has grown from a small local business to a leading e-commerce platform in India. Our journey began with a simple mission: to provide customers with high-quality products at competitive prices while delivering exceptional service.</p>
+                </div>
+
+                <div class="mission-vision">
+                    <div class="mission-card">
+                        <i class="fas fa-bullseye"></i>
+                        <h3>Our Mission</h3>
+                        <p>To make quality products accessible to everyone through a seamless shopping experience, backed by excellent customer service and competitive pricing.</p>
+                    </div>
+                    <div class="vision-card">
+                        <i class="fas fa-eye"></i>
+                        <h3>Our Vision</h3>
+                        <p>To become India's most trusted online marketplace, known for quality products, exceptional service, and customer satisfaction.</p>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <h2><i class="fas fa-handshake"></i> Why Choose Us</h2>
+                    <p>At Krishnamart, we are committed to providing:</p>
+                    <ul class="values-grid">
+                        <div class="value-card">
+                            <i class="fas fa-medal"></i>
+                            <h3>Quality Products</h3>
+                            <p>Carefully curated selection of high-quality items</p>
+                        </div>
+                        <div class="value-card">
+                            <i class="fas fa-truck"></i>
+                            <h3>Fast Delivery</h3>
+                            <p>Quick and reliable shipping across India</p>
+                        </div>
+                        <div class="value-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Secure Shopping</h3>
+                            <p>Safe and secure payment options</p>
+                        </div>
+                        <div class="value-card">
+                            <i class="fas fa-headset"></i>
+                            <h3>24/7 Support</h3>
+                            <p>Dedicated customer service team</p>
+                        </div>
+                    </ul>
+                </div>
+
+                <div class="team-section">
+                    <div class="about-card">
+                        <h2><i class="fas fa-users"></i> Our Team</h2>
+                        <p>Meet the dedicated professionals behind Krishnamart's success:</p>
+                        <div class="team-grid">
+                            <div class="team-member">
+                                <img src="https://via.placeholder.com/300x300" alt="Team Member 1">
+                                <div class="team-member-info">
+                                    <h3>John Doe</h3>
+                                    <p>Founder & CEO</p>
+                                </div>
+                            </div>
+                            <div class="team-member">
+                                <img src="https://via.placeholder.com/300x300" alt="Team Member 2">
+                                <div class="team-member-info">
+                                    <h3>Jane Smith</h3>
+                                    <p>Operations Manager</p>
+                                </div>
+                            </div>
+                            <div class="team-member">
+                                <img src="https://via.placeholder.com/300x300" alt="Team Member 3">
+                                <div class="team-member-info">
+                                    <h3>Mike Johnson</h3>
+                                    <p>Customer Service Lead</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="returns.html">Returns & Refunds</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> support@krishnamart.com</p>
+                <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Premium Street, Mumbai, India</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Krishnamart. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 
